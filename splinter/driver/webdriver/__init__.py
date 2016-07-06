@@ -413,6 +413,10 @@ class BaseWebDriver(DriverAPI):
         field = self.find_by_name(name).first
         field.value = value
 
+    def fill_by_id(self, id, value):
+        field = self.find_by_id(id).first
+        field.value = value
+
     attach_file = fill
 
     def fill_form(self, field_values):
