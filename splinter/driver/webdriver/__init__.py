@@ -12,6 +12,7 @@ from contextlib import contextmanager
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import Select
 
 from splinter.driver import DriverAPI, ElementAPI
 from splinter.element_list import ElementList
@@ -535,6 +536,9 @@ class WebDriverElement(ElementAPI):
 
     def select_by_text(self, text):
         self.find_by_xpath('//select[@name="%s"]/option[text()="%s"]' % (self["name"], text))._element.click()
+
+    def as_select(self):
+        return Select(self._element)
 
     def type(self, value, slowly=False):
         if slowly:

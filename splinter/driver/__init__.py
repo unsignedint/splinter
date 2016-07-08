@@ -617,5 +617,11 @@ class ElementAPI(InheritedDocs('_ElementAPI', (object,), {})):
         """
         raise NotImplementedError
 
+    def as_select(self):
+        """
+        Returns a selenium ``Select`` instance for this element.
+        """
+        raise NotImplementedError
+
     def __getitem__(self, attribute):
         raise NotImplementedError
